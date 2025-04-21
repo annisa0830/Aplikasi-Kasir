@@ -28,8 +28,9 @@
                         <input type="number" class="form-control" id="Nomor_Telepon" name="Nomor_Telepon" placeholder="Masukkan nomor telepon" required>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
+    <button type="submit" class="btn btn-primary">Tambah</button>
+    <a href="{{ route('kasir_pelanggans.index') }}" class="btn btn-secondary ms-2">Kembali</a>
+</div>
                 </form>
             </div>
         </div>

@@ -43,7 +43,9 @@
 
 <div class="text-center">
     <button type="submit" class="btn btn-primary">Tambah</button>
+    <a href="{{ route('kasir_produks.index') }}" class="btn btn-secondary ms-2">Kembali</a>
 </div>
+
 
                 </form>
             </div>

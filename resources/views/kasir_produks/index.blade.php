@@ -50,11 +50,11 @@
                         <td>
                             
                             <a href="{{ route('kasir_produks.edit', $produk->ProdukID) }}" class="btn btn-sm btn-info">Ubah</a>
-                            <form action="{{ route('kasir_produks.destroy', $produk->ProdukID) }}" method="POST" class="d-inline">
+                            <!-- <form action="{{ route('kasir_produks.destroy', $produk->ProdukID) }}" method="POST" class="d-inline">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('SERIUS DIAPUS NI?')">Hapus</button>
-                            </form>
+                            </form> -->
                         </td>
                         @endcan
                     </tr>

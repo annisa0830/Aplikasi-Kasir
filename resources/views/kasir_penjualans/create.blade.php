@@ -7,7 +7,7 @@
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
 
-    <form action="{{ route('kasir_penjualans.store') }}" method="POST">
+    <form action="{{ route('kasir_penjualans.store') }}" method="POST" onsubmit="return cekPembayaran()">
         @csrf
         
         <div class="mb-3">
@@ -20,10 +20,19 @@
             </select>
         </div>
         
-        <div class="mb-3">
-            <label for="Tanggal_Penjualan" class="form-label">Tanggal Penjualan</label>
-            <input type="date" name="Tanggal_Penjualan" id="Tanggal_Penjualan" class="form-control" required>
-        </div>
+        @php
+    $today = date('Y-m-d');
+@endphp
+
+<div class="mb-3">
+    <label for="Tanggal_Penjualan" class="form-label">Tanggal Penjualan</label>
+    <input type="date" name="Tanggal_Penjualan" id="Tanggal_Penjualan"
+           class="form-control" required
+           min="{{ $today }}" max="{{ $today }}"
+           onkeydown="return false">
+</div>
+
+
         
         <h4>Produk</h4>
         <div id="produk-container">
@@ -61,9 +70,9 @@
         </div>
         
         <button type="submit" class="btn btn-success">Simpan</button>
-    </form>
+    <a href="{{ route('kasir_penjualans.index') }}" class="btn btn-secondary ms-2">Kembali</a>
+</form>
 </div>
-
 <!-- Load Select2 CSS & JS -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -168,5 +177,35 @@
 }
 });
 
+    // function cekPembayaran() {
+    //     const total = parseInt(document.getElementById('Total_Harga').value);
+    //     const tunai = parseInt(document.getElementById('Uang_Bayar').value);
+
+    //     if (tunai < total) {
+    //         alert('Uang tunai kurang dari total harga!');
+    //         return false; // mencegah submit
+    //     }
+
+    //     return true; // lanjutkan submit
+    
+
+
 </script>
+<script>
+function cekPembayaran() {
+    const totalField = document.getElementById('Total_Harga').value.replace(/[^\d]/g, '');
+    const bayarField = document.getElementById('Uang_Bayar').value;
+
+    const total = parseInt(totalField) || 0;
+    const bayar = parseInt(bayarField) || 0;
+
+    if (bayar < total) {
+        alert('Uang Bayar tidak boleh kurang dari Total Harga!');
+        return false; // mencegah submit
+    }
+
+    return true; // lanjutkan submit
+}
+</script>
+
 @endsection

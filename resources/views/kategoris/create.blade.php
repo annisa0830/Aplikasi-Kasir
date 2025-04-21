@@ -26,8 +26,10 @@
                     </div>
                     
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Tambah</button>
-                    </div>
+    <button type="submit" class="btn btn-primary">Tambah</button>
+    <a href="{{ route('kategoris.index') }}" class="btn btn-secondary ms-2">Kembali</a>
+</div>
+
                 </form>
             </div>
         </div>

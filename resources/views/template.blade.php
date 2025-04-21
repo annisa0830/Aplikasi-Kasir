@@ -27,7 +27,7 @@
   <link rel="logo-puri" sizes="400x400" href="{{ asset('assets/img/logo-puri.png') }}">
   <link rel="icon" type="image/png" href="{{ asset('assets/img/logo-puri.png') }}">
   <title>
-    RS PURI CINERE
+    VIVRE MART
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />

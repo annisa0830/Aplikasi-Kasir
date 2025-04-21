@@ -23,7 +23,7 @@ class KategoriController extends Controller
 
         $kategoris = $query->paginate(10);
 
-        // Passing data ke view
+        
         return view('kategoris.index', compact('kategoris'));
     }
 
@@ -41,7 +41,7 @@ class KategoriController extends Controller
 
         $this->validate($request, $rules);
 
-        // Pastikan model yang digunakan benar
+        
         Kategori::create($request->all());
 
         return redirect()->route('kategoris.index')->with('success', 'Kategori Berhasil Dibuat.');
